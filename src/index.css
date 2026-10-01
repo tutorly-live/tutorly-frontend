@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #EFF6FF;
+  --color-brand-100: #DBEAFE;
+  --color-brand-200: #BFDBFE;
+  --color-brand-300: #93C5FD;
+  --color-brand-400: #60A5FA;
+  --color-brand-500: #3B82F6;
+  --color-brand-600: #2563EB;
+  --color-brand-700: #1D4ED8;
+  --color-brand-800: #1E40AF;
+  --color-brand-900: #1E3A8A;
+
+  --color-emerald-50: #ECFDF5;
+  --color-emerald-100: #D1FAE5;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+
+  --color-success: #16A34A;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+  --color-slate-950: #020617;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: var(--font-sans); background-color: #ffffff; color: var(--color-slate-900); margin: 0; padding: 0; }
+
+/* ─── Keyframes ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-3deg); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes bobble {
+  0%, 100% { transform: translateY(0) scale(1); }
+  33% { transform: translateY(-6px) scale(1.03); }
+  66% { transform: translateY(3px) scale(0.98); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: floatSlow 8s ease-in-out infinite; }
+.animate-bobble { animation: bobble 7s ease-in-out infinite; }
+.animate-fade-up { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.22,1,0.36,1) both; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero subtle gradient bottom */
+.hero-fade {
+  background: linear-gradient(180deg, #ffffff 0%, #F8FAFC 60%, #F1F5F9 100%);
+}
+
+/* Mockup glow */
+.mockup-glow {
+  box-shadow:
+    0 0 0 1px rgba(37,99,235,0.06),
+    0 20px 60px -12px rgba(37,99,235,0.15),
+    0 40px 80px -20px rgba(37,99,235,0.10);
+}
+
+.glow-brand {
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.08),
+              0 4px 16px -4px rgba(37,99,235,0.15),
+              0 12px 40px -8px rgba(37,99,235,0.12);
+}
+.glow-brand-lg {
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.1),
+              0 8px 32px -4px rgba(37,99,235,0.2),
+              0 24px 64px -12px rgba(37,99,235,0.18);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-slate-300); border-radius: 999px; }
+
+/* Marquee */
+.marquee-track { animation: marquee 35s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
