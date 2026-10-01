@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { AppleLogo, GooglePlayLogo, Star } from '@phosphor-icons/react'
 import { useCountUp } from '../lib/hooks'
 import { ease, fadeUp, inView, stagger } from '../lib/motion'
+import { playStoreUrl } from '../site'
 
 /** Official Tutorly logo (transparent PNG, 720×243 source → crisp on retina). */
 export function Logo({ className = 'h-11' }: { className?: string }) {
@@ -125,7 +126,10 @@ export function StoreBadges({ tone = 'dark', className = '' }: { tone?: 'dark' |
   return (
     <div className={`flex flex-wrap items-center gap-3 ${className}`}>
       <motion.a
-        href="#download"
+        href={playStoreUrl}
+        target="_blank"
+        rel="noopener"
+        aria-label="Get Tutorly on Google Play"
         whileHover={{ y: -3 }}
         whileTap={{ scale: 0.97 }}
         transition={{ type: 'spring', stiffness: 400, damping: 22 }}

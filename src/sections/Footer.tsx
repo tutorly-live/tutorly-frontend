@@ -29,7 +29,7 @@ export function DownloadCTA() {
 
           <div className="relative hidden items-end justify-center md:flex">
             <motion.img
-              src="/tutorly-mobile-mockup.png"
+              src="/tutorly-mobile-mockup.webp"
               alt=""
               width={284}
               height={566}

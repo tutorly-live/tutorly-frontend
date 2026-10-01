@@ -1,32 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO -->
-    <title>Tutorly — Find the Perfect Tutor in Chittagong, Bangladesh</title>
-    <meta name="description" content="Connect students and guardians with verified, qualified tutors in your neighbourhood. Post a tuition, browse profiles, and hire the right match — all in one place. Free for students. ৳500 one-time activation for tutors." />
-    <meta name="keywords" content="tutor, tutorly, home tutor, chittagong tutor, bangladesh tutor, tuition, find tutor, online tutoring, private tutor" />
-    <meta name="author" content="Tutorly" />
+    <!-- Primary SEO (values come from site.json via vite.config.ts) -->
+    <title>%SITE_TITLE%</title>
+    <meta name="description" content="%SITE_DESCRIPTION%" />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="author" content="%SITE_NAME%" />
+    <meta name="application-name" content="%SITE_NAME%" />
+    <meta name="theme-color" content="#008BFF" />
+    <meta name="geo.region" content="BD" />
+    <meta name="geo.placename" content="Chittagong" />
+
+    <!-- Icons & PWA -->
+    <link rel="icon" type="image/png" sizes="128x128" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Android app banner / association -->
+    <meta name="google-play-app" content="app-id=%PLAY_STORE_ID%" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Tutorly — Find the Perfect Tutor, Instantly" />
-    <meta property="og:description" content="Bangladesh's trusted tutor-student matchmaking app. Free for students & guardians. Post a tuition and get applications from qualified tutors in minutes." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tutorly.app" />
+    <meta property="og:site_name" content="%SITE_NAME%" />
+    <meta property="og:locale" content="%SITE_LOCALE%" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="%SITE_TITLE%" />
+    <meta property="og:description" content="%SITE_DESCRIPTION%" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Tutorly app — find verified home tutors in Chittagong" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Tutorly — Find the Perfect Tutor, Instantly" />
-    <meta name="twitter:description" content="Connect with qualified tutors in Chittagong. Free for students. Post a tuition today." />
+    <meta name="twitter:title" content="%SITE_TITLE%" />
+    <meta name="twitter:description" content="%SITE_DESCRIPTION%" />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+    <meta name="twitter:image:alt" content="Tutorly app — find verified home tutors in Chittagong" />
 
-    <!-- Preconnect for Google Fonts -->
+    <!-- Performance: fonts + hero image (LCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <meta name="theme-color" content="#008BFF" />
+    <link rel="preload" as="image" href="/tutorly-mobile-mockup.webp" type="image/webp" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>

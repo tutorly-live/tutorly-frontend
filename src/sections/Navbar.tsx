@@ -5,6 +5,7 @@ import { Logo } from '../components/ui'
 import { useActiveSection } from '../lib/hooks'
 import { ease } from '../lib/motion'
 import { btn } from '../lib/styles'
+import { playStoreUrl } from '../site'
 
 const links = [
   { id: 'features', label: 'Features' },
@@ -73,7 +74,7 @@ export function Navbar() {
           </ul>
 
           <div className="hidden lg:block">
-            <a href="#download" className={btn.primary}>
+            <a href={playStoreUrl} target="_blank" rel="noopener" className={btn.primary}>
               <DownloadSimple size={18} weight="bold" />
               Download App
             </a>
@@ -115,7 +116,7 @@ export function Navbar() {
                     </motion.li>
                   ))}
                 </ul>
-                <a href="#download" onClick={() => setOpen(false)} className={`${btn.primary} mt-3 w-full`}>
+                <a href={playStoreUrl} target="_blank" rel="noopener" onClick={() => setOpen(false)} className={`${btn.primary} mt-3 w-full`}>
                   <DownloadSimple size={18} weight="bold" />
                   Download App
                 </a>

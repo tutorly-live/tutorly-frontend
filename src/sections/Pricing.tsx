@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { CheckCircle, ShieldCheck } from '@phosphor-icons/react'
 import { Eyebrow, Item, Reveal, SectionHeader, Stagger } from '../components/ui'
 import { btn, container, section } from '../lib/styles'
+import { playStoreUrl } from '../site'
 
 const plans = [
   {
@@ -61,7 +62,7 @@ export function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href="#download" className={`${p.featured ? btn.inverse : btn.secondaryLg} w-full`}>{p.cta}</a>
+                <a href={playStoreUrl} target="_blank" rel="noopener" className={`${p.featured ? btn.inverse : btn.secondaryLg} w-full`}>{p.cta}</a>
               </motion.div>
             </Item>
           ))}

@@ -5,7 +5,7 @@ import { Avatar, Stars, StoreBadges } from '../components/ui'
 import { ease } from '../lib/motion'
 import { container } from '../lib/styles'
 
-const headline = ['The', 'right', 'tutor,', 'right', 'from', 'your', 'phone']
+const headline = ['The', 'right', 'home', 'tutor,', 'right', 'from', 'your', 'phone']
 
 function FloatCard({ children, className, y, delay }: { children: ReactNode; className: string; y: MotionValue<number>; delay: number }) {
   return (
@@ -57,7 +57,7 @@ export function Hero() {
           {headline.map((w, i) => (
             <span key={i} className="inline-block overflow-hidden pb-1 align-bottom">
               <motion.span
-                className={`inline-block ${i >= 3 ? 'text-primary' : ''}`}
+                className={`inline-block ${i >= 4 ? 'text-primary' : ''}`}
                 initial={{ y: '110%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.7, ease, delay: 0.1 + i * 0.06 }}
@@ -75,7 +75,7 @@ export function Hero() {
           transition={{ duration: 0.6, ease, delay: 0.55 }}
           className="mx-auto mt-6 max-w-xl text-[18px] leading-7 text-muted"
         >
-          Tutorly connects guardians with verified tutors nearby. Post a tuition free, compare profiles, and confirm the hire safely — all in one app.
+          Tutorly is the tuition app that connects guardians with verified home tutors across Chittagong. Post a tuition free, compare profiles, and confirm the hire safely — all in one app.
         </motion.p>
 
         <motion.div
@@ -105,10 +105,10 @@ export function Hero() {
         <div className="relative mx-auto mt-14 h-[420px] max-w-[880px] sm:h-[520px]">
           <motion.div style={{ y: phoneY }} className="absolute left-1/2 top-0 w-[260px] -translate-x-1/2 sm:w-[300px]">
             <motion.img
-              initial={{ opacity: 0, y: 120 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease, delay: 0.5 }}
-              src="/tutorly-mobile-mockup.png"
+              initial={{ y: 120 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, ease, delay: 0.2 }}
+              src="/tutorly-mobile-mockup.webp"
               alt="Tutorly app home screen listing nearby tutors with ratings and hourly rates"
               width={284}
               height={566}

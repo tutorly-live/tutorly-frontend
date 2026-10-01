@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 
-/** Eased count from 0 → end once visible. */
+/**
+ * Eased count 0 → end once visible. Renders the final value first so the
+ * pre-rendered HTML (and crawlers / no-JS visitors) see the real number.
+ */
 export function useCountUp(end: number, duration = 1400) {
   const ref = useRef<HTMLSpanElement>(null)
-  const [reduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-  const [value, setValue] = useState(reduced ? end : 0)
+  const [value, setValue] = useState(end)
   useEffect(() => {
     const el = ref.current
-    if (!el || reduced) return
+    if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     let frame = 0
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -21,15 +23,15 @@ export function useCountUp(end: number, duration = 1400) {
         }
         frame = requestAnimationFrame(tick)
       },
-      { threshold: 0.5 },
+      { threshold: 0.1 },
     )
     obs.observe(el)
     return () => {
       obs.disconnect()
       cancelAnimationFrame(frame)
     }
-  }, [end, duration, reduced])
-  return { ref, value: reduced ? end : value }
+  }, [end, duration])
+  return { ref, value }
 }
 
 /** Returns the id of the section currently under the navbar. */

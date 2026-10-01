@@ -33,7 +33,7 @@ export function Showcase() {
             className="mx-auto max-w-[1040px] overflow-hidden rounded-xl border border-line bg-surface shadow-raised"
           >
             <img
-              src="/tutorly-app-mockup.jpg"
+              src="/tutorly-app-mockup.webp"
               alt="Tutorly on a tablet showing tutors near you, filterable by subject"
               width={1376}
               height={768}
