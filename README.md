@@ -30,5 +30,5 @@ pnpm build # or npm run build
 Build and run using Docker:
 ```bash
 docker build -t tutorly-frontend .
-docker run -d -p 80:80 tutorly-frontend
+docker run -d -p 4002:4002 tutorly-frontend
 ```
