@@ -6,9 +6,9 @@ import { ease, fadeUp, inView, stagger } from '../lib/motion'
 import { playStoreUrl } from '../site'
 
 /** Official Tutorly logo (transparent PNG, 720×243 source → crisp on retina). */
-export function Logo({ className = 'h-11' }: { className?: string }) {
+export function Logo({ className = 'h-11', href = '/' }: { className?: string; href?: string }) {
   return (
-    <a href="#top" className="inline-flex flex-shrink-0 items-center" aria-label="Tutorly home">
+    <a href={href} className="inline-flex flex-shrink-0 items-center" aria-label="Tutorly home">
       <img src="/tutorly-logo.png" alt="Tutorly" width={720} height={243} className={`w-auto ${className}`} />
     </a>
   )

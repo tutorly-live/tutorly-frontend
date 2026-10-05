@@ -68,7 +68,7 @@ const columns = [
   },
 ]
 
-export function Footer() {
+export function Footer({ isPrivacy = false }: { isPrivacy?: boolean }) {
   return (
     <footer className="border-t border-line bg-surface">
       <div className={`${container} pb-8 pt-14`}>
@@ -94,11 +94,14 @@ export function Footer() {
             <nav key={col.title} aria-label={col.title}>
               <p className="text-[14px] font-bold leading-5 text-ink">{col.title}</p>
               <ul className="mt-4 space-y-3">
-                {col.links.map((l) => (
-                  <li key={l.l}>
-                    <a href={l.h} className="text-[14px] leading-5 text-muted transition-colors hover:text-primary-80">{l.l}</a>
-                  </li>
-                ))}
+                {col.links.map((l) => {
+                  const href = isPrivacy && l.h.startsWith('#') ? `/${l.h}` : l.h
+                  return (
+                    <li key={l.l}>
+                      <a href={href} className="text-[14px] leading-5 text-muted transition-colors hover:text-primary-80">{l.l}</a>
+                    </li>
+                  )
+                })}
               </ul>
             </nav>
           ))}
@@ -116,7 +119,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-[13px] leading-4 text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Tutorly. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary-80">Privacy</a>
+            <a href="/privacy" className="hover:text-primary-80 font-medium">Privacy Policy</a>
             <a href="#" className="hover:text-primary-80">Terms</a>
             <a href="#" className="hover:text-primary-80">Refund Policy</a>
           </div>

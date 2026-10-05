@@ -16,7 +16,7 @@ const links = [
 ]
 const ids = links.map((l) => l.id)
 
-export function Navbar() {
+export function Navbar({ isPrivacy = false }: { isPrivacy?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
@@ -52,12 +52,23 @@ export function Navbar() {
           <Logo />
 
           <ul className="hidden items-center gap-1 lg:flex">
+            {isPrivacy && (
+              <li>
+                <a
+                  href="/"
+                  className="relative block rounded-full px-4 py-2 text-[14px] leading-5 font-semibold text-primary-80 transition-colors hover:text-primary-70"
+                >
+                  Home
+                </a>
+              </li>
+            )}
             {links.map((l) => {
-              const isActive = active === l.id
+              const isActive = !isPrivacy && active === l.id
+              const href = isPrivacy ? `/#${l.id}` : `#${l.id}`
               return (
                 <li key={l.id}>
                   <a
-                    href={`#${l.id}`}
+                    href={href}
                     aria-current={isActive ? 'true' : undefined}
                     className={`relative block rounded-full px-4 py-2 text-[14px] leading-5 transition-colors ${
                       isActive ? 'font-semibold text-primary-80' : 'text-ink hover:text-primary-80'
@@ -108,9 +119,16 @@ export function Navbar() {
             >
               <div className="border-t border-line px-3 pb-4 pt-3">
                 <ul className="space-y-1">
+                  {isPrivacy && (
+                    <motion.li initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 }}>
+                      <a href="/" onClick={() => setOpen(false)} className="block rounded-md px-3 py-2.5 text-[16px] font-bold leading-6 text-primary-80 hover:bg-surface-variant">
+                        Home
+                      </a>
+                    </motion.li>
+                  )}
                   {links.map((l, i) => (
                     <motion.li key={l.id} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 + i * 0.04 }}>
-                      <a href={`#${l.id}`} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2.5 text-[16px] leading-6 text-ink hover:bg-surface-variant">
+                      <a href={isPrivacy ? `/#${l.id}` : `#${l.id}`} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2.5 text-[16px] leading-6 text-ink hover:bg-surface-variant">
                         {l.label}
                       </a>
                     </motion.li>
