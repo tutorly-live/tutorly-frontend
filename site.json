@@ -1,9 +1,14 @@
 {
   "url": "https://tutorly.live",
-  "name": "Tutorly",
-  "title": "Tutorly – Find Verified Home Tutors in Bangladesh | Tuition App",
-  "description": "Free tuition app for Bangladesh. Post a tuition, compare verified home tutors across Bangladesh and confirm the hire safely in-app. Available now on Android.",
+  "name": "Tutor Lagbe",
+  "brandName": "Tutor Lagbe",
+  "title": "Tutor Lagbe – Find Verified Home Tutors in Bangladesh | Tuition App",
+  "description": "Bangladesh's free home tutor finder. Post a tuition, compare verified tutors and confirm the hire safely in-app. Available now on Android.",
   "playStoreId": "com.tutorly.app.tutorly",
   "email": "tutorlyceo@gmail.com",
+  "phone": "+880 1721-292188",
+  "phoneRaw": "8801721292188",
+  "tradeLicense": "TRAD/DNCC/005645/2025",
+  "address": "House-407, Road-6, Avenue-3, Mirpur DOHS, Dhaka",
   "locale": "en_BD"
 }

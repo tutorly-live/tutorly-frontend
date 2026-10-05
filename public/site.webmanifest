@@ -1,7 +1,7 @@
 {
-  "name": "Tutorly — Find Home Tutors",
-  "short_name": "Tutorly",
-  "description": "Find verified home tutors in Chittagong. Post a tuition free and hire safely in-app.",
+  "name": "Tutor Lagbe — Find Home Tutors",
+  "short_name": "Tutor Lagbe",
+  "description": "Find verified home tutors in Bangladesh. Post a tuition free and hire safely in-app.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
@@ -9,9 +9,10 @@
   "icons": [
     { "src": "/favicon.png", "sizes": "128x128", "type": "image/png" },
     { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
   "related_applications": [
     { "platform": "play", "url": "https://play.google.com/store/apps/details?id=com.tutorly.app.tutorly", "id": "com.tutorly.app.tutorly" }
   ]
 }
+

@@ -11,10 +11,23 @@ import { Testimonials } from './sections/Testimonials'
 import { FAQ } from './sections/FAQ'
 import { DownloadCTA, Footer } from './sections/Footer'
 import { PrivacyPolicy } from './pages/PrivacyPolicy'
+import { TermsAndConditions } from './pages/TermsAndConditions'
+import { ReturnRefundPolicy } from './pages/ReturnRefundPolicy'
+import { DeliveryPolicy } from './pages/DeliveryPolicy'
+import { AboutUs } from './pages/AboutUs'
 
 interface AppProps {
   initialPath?: string
 }
+
+const LEGAL_ROUTES = [
+  '/privacy', '/privacy-policy',
+  '/terms', '/terms-and-conditions',
+  '/refund', '/refund-policy',
+  '/delivery', '/delivery-policy',
+  '/about',
+  '/',
+]
 
 export default function App({ initialPath = '/' }: AppProps) {
   const [path, setPath] = useState(() => {
@@ -39,7 +52,7 @@ export default function App({ initialPath = '/' }: AppProps) {
 
       // Seamless client-side navigation for internal pages
       const normalized = href.replace(/\/$/, '') || '/'
-      if (normalized === '/privacy' || normalized === '/privacy-policy' || normalized === '/') {
+      if (LEGAL_ROUTES.includes(normalized)) {
         e.preventDefault()
         if (window.location.pathname.replace(/\/$/, '') !== normalized.replace(/\/$/, '')) {
           window.history.pushState({}, '', href)
@@ -57,6 +70,32 @@ export default function App({ initialPath = '/' }: AppProps) {
   }, [])
 
   const isPrivacy = path === '/privacy' || path === '/privacy-policy'
+  const isTerms = path === '/terms' || path === '/terms-and-conditions'
+  const isRefund = path === '/refund' || path === '/refund-policy'
+  const isDelivery = path === '/delivery' || path === '/delivery-policy'
+  const isAbout = path === '/about'
+  const isLegalPage = isPrivacy || isTerms || isRefund || isDelivery || isAbout
+
+  const renderPage = () => {
+    if (isPrivacy) return <PrivacyPolicy />
+    if (isTerms) return <TermsAndConditions />
+    if (isRefund) return <ReturnRefundPolicy />
+    if (isDelivery) return <DeliveryPolicy />
+    if (isAbout) return <AboutUs />
+    return (
+      <>
+        <Hero />
+        <Marquee />
+        <Features />
+        <HowItWorks />
+        <Showcase />
+        <Pricing />
+        <Testimonials />
+        <FAQ />
+        <DownloadCTA />
+      </>
+    )
+  }
 
   return (
     // Respect the OS "reduce motion" setting for every animation on the page.
@@ -68,25 +107,11 @@ export default function App({ initialPath = '/' }: AppProps) {
         >
           Skip to content
         </a>
-        <Navbar isPrivacy={isPrivacy} />
+        <Navbar isPrivacy={isLegalPage} />
         <main id="main" className="pt-[78px]">
-          {isPrivacy ? (
-            <PrivacyPolicy />
-          ) : (
-            <>
-              <Hero />
-              <Marquee />
-              <Features />
-              <HowItWorks />
-              <Showcase />
-              <Pricing />
-              <Testimonials />
-              <FAQ />
-              <DownloadCTA />
-            </>
-          )}
+          {renderPage()}
         </main>
-        <Footer isPrivacy={isPrivacy} />
+        <Footer isPrivacy={isLegalPage} />
       </div>
     </MotionConfig>
   )

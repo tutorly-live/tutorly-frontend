@@ -20,6 +20,7 @@ import {
 } from '@phosphor-icons/react'
 import { container } from '../lib/styles'
 import site, { playStoreUrl } from '../site'
+// Contact details are sourced from site.json (single source of truth)
 
 const sections = [
   { id: 'summary', title: 'Summary (Plain English)' },
@@ -570,7 +571,7 @@ export function PrivacyPolicy() {
               </a>
 
               <a
-                href="https://wa.me/8801700000000"
+                href={`https://wa.me/${site.phoneRaw}`}
                 target="_blank"
                 rel="noopener"
                 className="flex flex-col rounded-xl border border-line bg-surface p-5 transition-shadow hover:shadow-card"
@@ -580,16 +581,16 @@ export function PrivacyPolicy() {
                 </div>
                 <h3 className="mt-3 text-[15px] font-bold text-ink">WhatsApp Helpline</h3>
                 <p className="mt-1 text-[13px] text-muted">Quick help &amp; support</p>
-                <span className="mt-2 text-[14px] font-semibold text-[#12805C]">+880 1700-000000</span>
+                <span className="mt-2 text-[14px] font-semibold text-[#12805C]">{site.phone}</span>
               </a>
 
               <div className="flex flex-col rounded-xl border border-line bg-surface p-5">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-tint text-primary-80">
                   <MapPin size={22} weight="bold" />
                 </div>
-                <h3 className="mt-3 text-[15px] font-bold text-ink">Headquarters</h3>
-                <p className="mt-1 text-[13px] text-muted">Location</p>
-                <span className="mt-2 text-[14px] font-medium text-body">Chittagong, Bangladesh</span>
+                <h3 className="mt-3 text-[15px] font-bold text-ink">Office Address</h3>
+                <p className="mt-1 text-[13px] text-muted">Mirpur DOHS, Dhaka</p>
+                <span className="mt-2 text-[14px] font-medium text-body">{site.address}</span>
               </div>
             </div>
           </section>

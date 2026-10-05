@@ -63,6 +63,14 @@ export function Pricing() {
                   ))}
                 </ul>
                 <a href={playStoreUrl} target="_blank" rel="noopener" className={`${p.featured ? btn.inverse : btn.secondaryLg} w-full`}>{p.cta}</a>
+                {p.featured && (
+                  <p className="mt-3 text-center text-[11px] leading-4 text-tertiary/60">
+                    By activating, you agree to our{' '}
+                    <a href="/terms" className="underline hover:text-tertiary/90">Terms &amp; Conditions</a>,{' '}
+                    <a href="/refund" className="underline hover:text-tertiary/90">Refund Policy</a>, and{' '}
+                    <a href="/privacy" className="underline hover:text-tertiary/90">Privacy Policy</a>.
+                  </p>
+                )}
               </motion.div>
             </Item>
           ))}

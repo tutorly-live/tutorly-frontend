@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { CheckCircle, EnvelopeSimple, FacebookLogo, Phone, WhatsappLogo } from '@phosphor-icons/react'
+import { CheckCircle, EnvelopeSimple, FacebookLogo, MapPin, Phone, WhatsappLogo, Certificate } from '@phosphor-icons/react'
 import { Logo, Reveal, StoreBadges } from '../components/ui'
 import { container } from '../lib/styles'
 import site from '../site'
@@ -59,12 +59,12 @@ const columns = [
     ],
   },
   {
-    title: 'Support',
+    title: 'Legal',
     links: [
-      { l: 'FAQ', h: '#faq' },
-      { l: 'Reviews', h: '#testimonials' },
-      { l: 'Download', h: '#download' },
-      { l: 'Contact us', h: `mailto:${site.email}` },
+      { l: 'Privacy Policy', h: '/privacy' },
+      { l: 'Terms & Conditions', h: '/terms' },
+      { l: 'Refund Policy', h: '/refund' },
+      { l: 'Delivery Policy', h: '/delivery' },
     ],
   },
 ]
@@ -74,15 +74,22 @@ export function Footer({ isPrivacy = false }: { isPrivacy?: boolean }) {
     <footer className="border-t border-line bg-surface">
       <div className={`${container} pb-8 pt-14`}>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
+          {/* Brand */}
           <div>
             <Logo className="h-14" />
-            <p className="mt-4 max-w-xs text-[14px] leading-5 text-muted">
+            <p className="mt-1 text-[15px] font-semibold text-ink">Tutor Lagbe</p>
+            <p className="mt-2 max-w-xs text-[14px] leading-5 text-muted">
               Bangladesh&rsquo;s trusted tutor–student matchmaking platform.
             </p>
-            <div className="mt-5 flex gap-2">
+            {/* Trade License */}
+            <div className="mt-4 inline-flex items-center gap-1.5 rounded-md border border-line bg-surface-variant px-3 py-1.5 text-[12px] font-medium text-muted">
+              <Certificate size={14} className="text-primary" />
+              Trade License: {site.tradeLicense}
+            </div>
+            <div className="mt-3 flex gap-2">
               {[
                 { icon: FacebookLogo, label: 'Facebook', h: '#' },
-                { icon: WhatsappLogo, label: 'WhatsApp', h: 'https://wa.me/8801700000000' },
+                { icon: WhatsappLogo, label: 'WhatsApp', h: `https://wa.me/${site.phoneRaw}` },
               ].map((s) => (
                 <a key={s.label} href={s.h} aria-label={s.label} className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-primary hover:text-primary-80">
                   <s.icon size={20} />
@@ -107,25 +114,54 @@ export function Footer({ isPrivacy = false }: { isPrivacy?: boolean }) {
             </nav>
           ))}
 
+          {/* Contact */}
           <div>
             <p className="text-[14px] font-bold leading-5 text-ink">Contact</p>
             <ul className="mt-4 space-y-3 text-[14px] leading-5">
-              <li><a href="tel:01700000000" className="inline-flex items-center gap-2 text-muted hover:text-primary-80"><Phone size={16} /> 01700-000000</a></li>
-              <li><a href="https://wa.me/8801700000000" className="inline-flex items-center gap-2 text-muted hover:text-primary-80"><WhatsappLogo size={16} /> WhatsApp support</a></li>
-              <li><a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 text-muted hover:text-primary-80"><EnvelopeSimple size={16} /> {site.email}</a></li>
+              <li>
+                <a href={`tel:${site.phoneRaw}`} className="inline-flex items-center gap-2 text-muted hover:text-primary-80">
+                  <Phone size={16} />
+                  {site.phone}
+                </a>
+              </li>
+              <li>
+                <a href={`https://wa.me/${site.phoneRaw}`} className="inline-flex items-center gap-2 text-muted hover:text-primary-80">
+                  <WhatsappLogo size={16} />
+                  WhatsApp support
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 text-muted hover:text-primary-80">
+                  <EnvelopeSimple size={16} />
+                  {site.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-2 pt-1 text-muted">
+                <MapPin size={16} className="mt-0.5 flex-shrink-0" />
+                <span className="text-[13px] leading-5">{site.address}</span>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 text-[13px] leading-4 text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Tutorly. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="/privacy" className="hover:text-primary-80 font-medium">Privacy Policy</a>
-            <a href="#" className="hover:text-primary-80">Terms</a>
-            <a href="#" className="hover:text-primary-80">Refund Policy</a>
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-line pt-6">
+          <div className="flex flex-col gap-3 text-[13px] leading-4 text-muted sm:flex-row sm:items-center sm:justify-between">
+            <div className="space-y-1">
+              <p>&copy; {new Date().getFullYear()} Tutor Lagbe (Tutorly). All rights reserved.</p>
+              <p className="text-[12px]">Trade License No: {site.tradeLicense}</p>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <a href="/about" className="hover:text-primary-80 font-medium">About Us</a>
+              <a href="/privacy" className="hover:text-primary-80 font-medium">Privacy Policy</a>
+              <a href="/terms" className="hover:text-primary-80">Terms &amp; Conditions</a>
+              <a href="/refund" className="hover:text-primary-80">Refund Policy</a>
+              <a href="/delivery" className="hover:text-primary-80">Delivery Policy</a>
+            </div>
           </div>
         </div>
       </div>
     </footer>
   )
 }
+
