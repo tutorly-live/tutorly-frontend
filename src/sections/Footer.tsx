@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { CheckCircle, EnvelopeSimple, FacebookLogo, Phone, WhatsappLogo } from '@phosphor-icons/react'
 import { Logo, Reveal, StoreBadges } from '../components/ui'
 import { container } from '../lib/styles'
+import site from '../site'
 
 export function DownloadCTA() {
   return (
@@ -63,7 +64,7 @@ const columns = [
       { l: 'FAQ', h: '#faq' },
       { l: 'Reviews', h: '#testimonials' },
       { l: 'Download', h: '#download' },
-      { l: 'Contact us', h: 'mailto:support@tutorly.app' },
+      { l: 'Contact us', h: `mailto:${site.email}` },
     ],
   },
 ]
@@ -76,7 +77,7 @@ export function Footer({ isPrivacy = false }: { isPrivacy?: boolean }) {
           <div>
             <Logo className="h-14" />
             <p className="mt-4 max-w-xs text-[14px] leading-5 text-muted">
-              Bangladesh&rsquo;s trusted tutor–student matchmaking platform. Made in Chittagong.
+              Bangladesh&rsquo;s trusted tutor–student matchmaking platform.
             </p>
             <div className="mt-5 flex gap-2">
               {[
@@ -111,7 +112,7 @@ export function Footer({ isPrivacy = false }: { isPrivacy?: boolean }) {
             <ul className="mt-4 space-y-3 text-[14px] leading-5">
               <li><a href="tel:01700000000" className="inline-flex items-center gap-2 text-muted hover:text-primary-80"><Phone size={16} /> 01700-000000</a></li>
               <li><a href="https://wa.me/8801700000000" className="inline-flex items-center gap-2 text-muted hover:text-primary-80"><WhatsappLogo size={16} /> WhatsApp support</a></li>
-              <li><a href="mailto:support@tutorly.app" className="inline-flex items-center gap-2 text-muted hover:text-primary-80"><EnvelopeSimple size={16} /> support@tutorly.app</a></li>
+              <li><a href={`mailto:${site.email}`} className="inline-flex items-center gap-2 text-muted hover:text-primary-80"><EnvelopeSimple size={16} /> {site.email}</a></li>
             </ul>
           </div>
         </div>

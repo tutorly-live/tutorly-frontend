@@ -2,7 +2,7 @@ import { motion } from 'motion/react'
 import { CheckCircle, ShieldCheck } from '@phosphor-icons/react'
 import { Eyebrow, Item, Reveal, SectionHeader, Stagger } from '../components/ui'
 import { btn, container, section } from '../lib/styles'
-import { playStoreUrl } from '../site'
+import site, { playStoreUrl } from '../site'
 
 const plans = [
   {
@@ -73,7 +73,7 @@ export function Pricing() {
             <ShieldCheck size={18} className="mt-px flex-shrink-0 text-primary" />
             <span>
               Payments are processed by SSLCommerz with server-side validation. Spotted something suspicious?{' '}
-              <a href="mailto:support@tutorly.app" className="font-semibold text-primary-80 hover:underline">support@tutorly.app</a>
+              <a href={`mailto:${site.email}`} className="font-semibold text-primary-80 hover:underline">{site.email}</a>
             </span>
           </p>
         </Reveal>

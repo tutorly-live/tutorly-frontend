@@ -5,6 +5,7 @@ import { Eyebrow, Item, Reveal, Stagger } from '../components/ui'
 import { faqs } from '../data'
 import { ease } from '../lib/motion'
 import { container, section } from '../lib/styles'
+import site from '../site'
 
 function Row({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
   const id = useId()
@@ -66,7 +67,7 @@ export function FAQ() {
               <a href="https://wa.me/8801700000000" className="inline-flex h-10 items-center gap-1.5 rounded-md bg-surface px-4 text-[14px] font-semibold text-primary-80 hover:bg-tertiary/90">
                 <WhatsappLogo size={18} /> WhatsApp
               </a>
-              <a href="mailto:support@tutorly.app" className="inline-flex h-10 items-center gap-1.5 rounded-md bg-tertiary/15 px-4 text-[14px] font-semibold hover:bg-tertiary/25">
+              <a href={`mailto:${site.email}`} className="inline-flex h-10 items-center gap-1.5 rounded-md bg-tertiary/15 px-4 text-[14px] font-semibold hover:bg-tertiary/25">
                 <EnvelopeSimple size={18} /> Email us
               </a>
             </div>
