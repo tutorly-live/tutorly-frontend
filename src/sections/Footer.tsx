@@ -61,7 +61,7 @@ const columns = [
   {
     title: 'Legal',
     links: [
-      { l: 'Privacy Policy', h: '/privacy' },
+      { l: 'Privacy Policy', h: '/privacy-policy' },
       { l: 'Terms & Conditions', h: '/terms' },
       { l: 'Refund Policy', h: '/refund' },
       { l: 'Delivery Policy', h: '/delivery' },
@@ -153,7 +153,7 @@ export function Footer({ isPrivacy = false }: { isPrivacy?: boolean }) {
             </div>
             <div className="flex flex-wrap gap-4">
               <a href="/about" className="hover:text-primary-80 font-medium">About Us</a>
-              <a href="/privacy" className="hover:text-primary-80 font-medium">Privacy Policy</a>
+              <a href="/privacy-policy" className="hover:text-primary-80 font-medium">Privacy Policy</a>
               <a href="/terms" className="hover:text-primary-80">Terms &amp; Conditions</a>
               <a href="/refund" className="hover:text-primary-80">Refund Policy</a>
               <a href="/delivery" className="hover:text-primary-80">Delivery Policy</a>

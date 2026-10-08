@@ -260,7 +260,7 @@ export function AboutUs() {
         {/* Bottom nav */}
         <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-line pt-8">
           <a href="/terms" className="text-[14px] font-medium text-muted hover:text-primary-80">Terms &amp; Conditions</a>
-          <a href="/privacy" className="text-[14px] font-medium text-muted hover:text-primary-80">Privacy Policy</a>
+          <a href="/privacy-policy" className="text-[14px] font-medium text-muted hover:text-primary-80">Privacy Policy</a>
           <a href="/refund" className="text-[14px] font-medium text-muted hover:text-primary-80">Refund Policy</a>
           <a href="/delivery" className="text-[14px] font-medium text-muted hover:text-primary-80">Delivery Policy</a>
           <a href={`https://wa.me/${site.phoneRaw}`} target="_blank" rel="noopener" className="ml-auto inline-flex items-center gap-1.5 text-[14px] font-medium text-[#12805C] hover:underline">

@@ -68,7 +68,7 @@ export function Pricing() {
                     By activating, you agree to our{' '}
                     <a href="/terms" className="underline hover:text-tertiary/90">Terms &amp; Conditions</a>,{' '}
                     <a href="/refund" className="underline hover:text-tertiary/90">Refund Policy</a>, and{' '}
-                    <a href="/privacy" className="underline hover:text-tertiary/90">Privacy Policy</a>.
+                    <a href="/privacy-policy" className="underline hover:text-tertiary/90">Privacy Policy</a>.
                   </p>
                 )}
               </motion.div>

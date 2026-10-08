@@ -142,8 +142,8 @@ function renderLegalPage(slug, aliases, title, description) {
 
 // --- 2. Pre-render all pages ---
 const privacyLen = renderLegalPage(
-  'privacy',
-  ['privacy-policy'],
+  'privacy-policy',
+  ['privacy'],
   'Privacy Policy',
   "Privacy Policy for Tutorly (Tutor Lagbe): Learn how we protect student, guardian, and tutor personal data on Bangladesh's trusted tuition platform.",
 )
@@ -195,7 +195,7 @@ writeFileSync(
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>${base}/privacy</loc>
+    <loc>${base}/privacy-policy</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

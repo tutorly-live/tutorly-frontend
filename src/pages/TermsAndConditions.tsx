@@ -183,7 +183,7 @@ export function TermsAndConditions() {
                 By registering an account, downloading the Tutorly Android application, or accessing the website at{' '}
                 <a href={site.url} className="text-primary-80 underline">{site.url.replace(/^https?:\/\//, '')}</a>,
                 you acknowledge that you have read, understood, and agree to be legally bound by these Terms &amp; Conditions and our{' '}
-                <a href="/privacy" className="font-semibold text-primary-80 hover:underline">Privacy Policy</a>.
+                <a href="/privacy-policy" className="font-semibold text-primary-80 hover:underline">Privacy Policy</a>.
               </p>
               <p>
                 If you do not agree with any part of these terms, you must discontinue use of our platform immediately.
